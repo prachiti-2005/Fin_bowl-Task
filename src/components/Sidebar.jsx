@@ -10,7 +10,13 @@ import {
   FileText,
   Search,
   ChevronDown,
+  LayoutDashboard,
+  CircleDollarSign,
+  Receipt,
+  ClipboardList,
+  BarChart3,
 } from "lucide-react";
+import Logo from "../assets/Logo.png";
 
 const ICON_MAP = {
   home: Home,
@@ -21,6 +27,14 @@ const ICON_MAP = {
   users: Users,
   wand: Wand2,
   doc: FileText,
+};
+
+const CHILD_ICON_MAP = {
+  Dashboard: LayoutDashboard,
+  Disbursement: CircleDollarSign,
+  Invoices: Receipt,
+  PO: ClipboardList,
+  "RMS Reports": BarChart3,
 };
 
 const NAV_SECTIONS = [
@@ -50,7 +64,7 @@ export default function Sidebar({ activePage, activeSubPage, onNavigate }) {
     <aside className="fb-sidebar">
       <div className="fb-sidebar__brand">
         {/* <span className="fb-sidebar__logo" /> */}
-        <span className="fb-sidebar__brand-name"><img src="/src/assets/Logo.png" alt="Finbowl Logo" /></span>
+        <span className="fb-sidebar__brand-name"><img src={Logo} alt="Finbowl Logo" /></span>
       </div>
 
       <div className="fb-sidebar__search">
@@ -89,19 +103,25 @@ export default function Sidebar({ activePage, activeSubPage, onNavigate }) {
 
               {section.children && expanded[section.label] && (
                 <div className="fb-sidebar__submenu">
-                  {section.children.map((child) => (
-                    <button
-                      key={child}
-                      className={`fb-sidebar__subitem ${
-                        activePage === section.label && activeSubPage === child
-                          ? "fb-sidebar__subitem--active"
-                          : ""
-                      }`}
-                      onClick={() => onNavigate(section.label, child)}
-                    >
-                      {child}
-                    </button>
-                  ))}
+                  {section.children.map((child) => {
+                    const ChildIcon = CHILD_ICON_MAP[child];
+                    return (
+                      <button
+                        key={child}
+                        className={`fb-sidebar__subitem ${
+                          activePage === section.label && activeSubPage === child
+                            ? "fb-sidebar__subitem--active"
+                            : ""
+                        }`}
+                        onClick={() => onNavigate(section.label, child)}
+                      >
+                        {ChildIcon && (
+                          <ChildIcon size={15} className="fb-sidebar__subicon" strokeWidth={1.75} />
+                        )}
+                        {child}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
