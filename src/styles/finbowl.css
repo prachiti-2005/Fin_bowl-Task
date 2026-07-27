@@ -2,7 +2,7 @@
   --fb-purple-900: #2b0a5e;
   --fb-purple-700: #4a1a8f;
   --fb-accent: #6c2bd9;
-  --fb-bg: #f5f5f9;
+  --fb-bg: #F7F5FF;
   --fb-white: #ffffff;
   --fb-border: #e6e6ee;
   --fb-text: #1c1c28;
@@ -76,7 +76,7 @@ button, input, select {
   flex-shrink: 0;
   height: 100%;           /* match .fb-app's height exactly */
   overflow: hidden;
-  background: linear-gradient(180deg, var(--fb-purple-900), #5b2299 90%);
+  background: linear-gradient(30deg,#2C1C5F 100%,#42307D 100%,#6941C6 100%);
   color: #e4dcfa;
   display: flex;
   flex-direction: column;
@@ -165,6 +165,17 @@ button, input, select {
   padding-left: 30px;
   margin: 2px 0 6px;
 }
+/* .fb-sidebar__subitem {
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: #cabdec;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+} */
+
 .fb-sidebar__subitem {
   background: transparent;
   border: none;
@@ -174,7 +185,14 @@ button, input, select {
   border-radius: 8px;
   cursor: pointer;
   font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+.fb-sidebar__subicon {
+  flex-shrink: 0;
+}
+
 .fb-sidebar__subitem:hover { background: rgba(255, 255, 255, 0.06); }
 .fb-sidebar__subitem--active {
   background: #fff;
@@ -205,12 +223,23 @@ button, input, select {
   margin-bottom: 20px;
 } */
 
-.fb-topbar {
+/* .fb-topbar {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
-  min-height: 40px;      /* was likely taller due to padding in children */
+  min-height: 40px;      
+} */
+
+.fb-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -24px -32px 20px;   /* cancel .fb-app__main padding so the line goes edge-to-edge */
+  padding: 16px 32px;
+  min-height: 40px;
+  border-bottom: 1px solid var(--fb-border);
+  background: var(--fb-white);
 }
 
 .fb-workspace-switcher {
