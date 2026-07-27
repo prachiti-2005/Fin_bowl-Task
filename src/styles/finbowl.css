@@ -59,6 +59,17 @@ button, input, select {
   overflow-y: auto;      /* only the main content area scrolls */
 }
 
+.fb-spin {
+  animation: fb-spin 0.8s linear infinite;
+}
+@keyframes fb-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.fb-btn ion-icon.fb-spin {
+  font-size: 15px;
+}
+
 /* ---------- Sidebar ---------- */
 /* .fb-sidebar {
   width: 248px;
