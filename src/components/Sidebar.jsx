@@ -49,8 +49,8 @@ export default function Sidebar({ activePage, activeSubPage, onNavigate }) {
   return (
     <aside className="fb-sidebar">
       <div className="fb-sidebar__brand">
-        <span className="fb-sidebar__logo" />
-        <span className="fb-sidebar__brand-name">FinBowl</span>
+        {/* <span className="fb-sidebar__logo" /> */}
+        <span className="fb-sidebar__brand-name"><img src="/src/assets/Logo.png" alt="Finbowl Logo" /></span>
       </div>
 
       <div className="fb-sidebar__search">
